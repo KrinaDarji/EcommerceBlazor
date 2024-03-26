@@ -9,7 +9,11 @@
     <div class="row">
         @foreach (var prod in Products)
         {
-            <_IndividualProduct Product="prod" OnFavSelection="FavoriteSelectedCountUpdate" OnLastSelectedProductName="LastSelectedName"></_IndividualProduct>
+            <_IndividualProduct Product="prod" OnFavSelection="FavoriteSelectedCountUpdate" OnLastSelectedProductName="LastSelectedName">
+                <FirstFragment>#1</FirstFragment>
+                <SecondFragment>#2</SecondFragment>
+
+            </_IndividualProduct>
         }
 
     </div>

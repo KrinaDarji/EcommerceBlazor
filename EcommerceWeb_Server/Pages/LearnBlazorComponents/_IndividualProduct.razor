@@ -6,6 +6,7 @@
     </h4>
     <input type="checkbox" @onchange="FavouriteUpdate"/> Add to favorite <br/><br/>
     Name - @Product.Name <br />
+    <p>RF from Parent - @FirstFragment @SecondFragment </p>
     Show Properties - <input type="checkbox" @bind-value="Product.IsActive" checked="@(Product.IsActive?"checked":null)" />
     @if (Product.IsActive)
     {
@@ -28,6 +29,11 @@
     public EventCallback<bool> OnFavSelection { get; set; }
     [Parameter]
     public EventCallback<string> OnLastSelectedProductName { get; set; }
+    [Parameter]
+    public RenderFragment FirstFragment { get; set; }
+    [Parameter]
+    public RenderFragment SecondFragment { get; set; }
+
 
     private async Task FavouriteUpdate(ChangeEventArgs e)
     {
