@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceWeb_Client", "Ecom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce_Models", "Ecommerce_Models\Ecommerce_Models.csproj", "{EBD1907E-9A4E-4E2A-BDB7-27DA678F9D62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce_Business", "Ecommerce_Business\Ecommerce_Business.csproj", "{86DBA73A-B2BA-45EF-AE6B-95CECF1E21B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce_Business", "Ecommerce_Business\Ecommerce_Business.csproj", "{86DBA73A-B2BA-45EF-AE6B-95CECF1E21B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce_Comman", "Ecommerce_Comman\Ecommerce_Comman.csproj", "{0B064E4E-713B-4D79-A4C1-86C84291199D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce_Comman", "Ecommerce_Comman\Ecommerce_Comman.csproj", "{0B064E4E-713B-4D79-A4C1-86C84291199D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce_DataAccess", "Ecommerce_DataAccess\Ecommerce_DataAccess.csproj", "{8C49E092-86B0-4ED5-BB00-84D10457292C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce_DataAccess", "Ecommerce_DataAccess\Ecommerce_DataAccess.csproj", "{8C49E092-86B0-4ED5-BB00-84D10457292C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
