@@ -1,10 +1,23 @@
 ﻿@page "/category/create"
+@page "/category/edit/{id:int}"
+@inject ICategoryRepository _categoryRepository;
+@inject NavigationManager _navigationManager;
 
 <div class="row my-2">
     <h3 class="card-title text-primary mb-3 ml-3">@Title Category</h3>
     <div class="col-10">
-        <EditForm Model="Category" OnValidSubmit="UpsertCategory">
-            <DataAnnotationsValidator/>
+        @if (Isloading)
+        {
+            <div class="text-center">
+                <img src="/images/loading.gif" />
+            </div>
+        }
+        else
+        {
+            <EditForm Model
+            ="Category" OnValidSubmit
+            ="UpsertCategory">
+                <DataAnnotationsValidator/>
            @*  <ValidationSummary/> *@
             <div class="form-group">
                 <label>
@@ -20,13 +33,53 @@
                 <NavLink href="category" class="btn btn-secondary">Back to Index</NavLink>
             </div>
         </EditForm>
+        }
     </div>
 </div>
 @code {
+    [Parameter]
+    public int Id { get; set; }
     private CategoryDTO Category { get; set; } = new CategoryDTO();
     private string Title { get; set; } = "Create";
-    private void UpsertCategory()
+    public bool Isloading { get; set; } 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        Category.Name = "Button Clicked";
+        if (firstRender)
+        {
+            if (Id == 0)
+            {
+                //create
+                Isloading = false;
+            }
+            else
+            {
+                //edit
+                Title = "Edit";
+                await LoadCategory();
+
+            }
+        }
+    }
+    private async Task LoadCategory()
+    {
+        Isloading = true;
+        StateHasChanged();
+        Category = await _categoryRepository.Get(Id);
+        Isloading = false;
+        StateHasChanged();
+    }
+    private async Task UpsertCategory()
+    {
+        if(Category.Id == 0)
+        {
+            //create
+           await _categoryRepository.Create(Category);
+        }
+        else
+        {
+            //update
+           await _categoryRepository.Update(Category);
+        }
+        _navigationManager.NavigateTo("category");
     }
 }
