@@ -2,6 +2,8 @@ using Ecommerce_Business.Repository;
 using Ecommerce_Business.Repository.IRepository;
 using Ecommerce_DataAccess;
 using EcommerceWeb_Server.Data;
+using EcommerceWeb_Server.Service;
+using EcommerceWeb_Server.Service.IService;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IFileUpload, FileUpload>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
